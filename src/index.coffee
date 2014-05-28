@@ -2,9 +2,9 @@ express = require 'express'
 stylus = require 'stylus'
 assets = require 'connect-assets'
 mongoose = require 'mongoose'
-session = require('express-session')
-cookieParser = require('cookie-parser')
-bodyParser = require("body-parser")
+session = require 'express-session'
+cookieParser = require 'cookie-parser'
+bodyParser = require 'body-parser'
 
 #### Basic application initialization
 # Create app instance.
@@ -35,7 +35,7 @@ app.use express.static(process.cwd() + '/public')
 console.log "setting session/cookie"
 app.use cookieParser()
 app.use session(
-  secret: "keyboard cat"
+  secret: "** CHANGE ** ME **"
   key: "sid"
   cookie:
     secure: true
@@ -44,7 +44,7 @@ app.use session(
 # Set View Engine.
 app.set 'view engine', 'jade'
 
-# [Body parser middleware](http://www.senchalabs.org/connect/middleware-bodyParser.html) parses JSON or XML bodies into `req.body` object
+# Parses JSON or XML bodies into `req.body` object
 app.use bodyParser()
 
 

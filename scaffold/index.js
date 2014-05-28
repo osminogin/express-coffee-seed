@@ -1,12 +1,11 @@
-var ejs = require('ejs')
-  , fs = require('fs')
-  , path = require('path')
+var ejs = require('ejs'),
+  fs = require('fs'),
+  path = require('path');
 
 module.exports = function(name) {
-  var name = name.toLowerCase();
-  var renderParams = {"name":name};
-
+  var renderParams = {'name': name.toLowerCase()};
   var appDir = path.normalize((__dirname + "/../"));
+
   var renderAndSave = function(templateName, outputName) {
     if (fs.existsSync(outputName)) {
       console.log("! "+outputName+" already exists!");
@@ -16,9 +15,11 @@ module.exports = function(name) {
     var renderedTemplate = ejs.render(template, renderParams);
     fs.writeFileSync(appDir+outputName, renderedTemplate);
     console.log("# "+outputName+" created");
-  }
+  };
+
+  // Render template files to source code
   renderAndSave("controller.coffee.ejs", "src/controllers/"+ name+"s.coffee");
   renderAndSave("model.coffee.ejs", "src/models/"+ name+".coffee");
   renderAndSave("test.coffee.ejs", "test/"+ name+"s_test.coffee");
 
-}
+};

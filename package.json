@@ -1,12 +1,8 @@
 {
-	"name": "express-coffee", 
-	"version": "1.8.1",
+	"name": "angular-coffee-express",
+	"version": "0.0.1",
 	"private": true,
-	"author": "Tom Wilson <tom@jackhq.com> (http://github.com/twilson63)",
-	"repository": {
-	  "type": "git",
-	  "url": "https://github.com/twilson63/express-coffee"
-	},
+	"author": "Vladimir Osintsev <oc@co.ru>",
   "scripts": {
 	    "install": "node node_modules/coffee-script/bin/cake build",
 	    "start": "node server.js",
@@ -34,7 +30,6 @@
     "supertest": "*",
     "request": "*",
     "supervisor": "*",
-    "docco-husky": "*",
     "puts": "*",
     "node-inspector": "*",
     "ejs": "*"

@@ -1,6 +1,7 @@
-# Express Coffee Template 8 (1.8.1)
+# Express Coffee Project Seed (0.0.1)
 
-This is a Node Express CoffeeScript Stack Template
+This is a Node Express CoffeeScript Stack Template based on
+http://twilson63.github.io/express-coffee
 
 It comes ready to go with connect-assets that give you the option
 to use coffee-script and stylus for the client side.
@@ -46,7 +47,7 @@ In your project directory.
 ```
 # Install nodejs and npm
 
-git clone http://github.com/twilson63/express-coffee.git [project-name]
+git clone https://github.com/osminogin/express-coffee-seed.git [project-name]
 cd [project-name]
 npm install
 ```
@@ -56,7 +57,6 @@ npm install
 ``` sh
 npm install coffee-script -g
 npm install mocha -g
-npm install docco -g
 ```
 
 # Run
@@ -75,7 +75,7 @@ see [http://visionmedia.github.com/mocha/](http://visionmedia.github.com/mocha/)
       it 'should be true', ->
         true.should.equal true
 
-to run mocha
+to run mocha test suite
 
     cake test
 

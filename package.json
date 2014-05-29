@@ -1,8 +1,12 @@
 {
-	"name": "angular-coffee-express",
+	"name": "express-coffee-seed",
 	"version": "0.0.1",
 	"private": true,
 	"author": "Vladimir Osintsev <oc@co.ru>",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/osminogin/express-coffee-seed.git"
+  },
   "scripts": {
 	    "install": "node node_modules/coffee-script/bin/cake build",
 	    "start": "node server.js",
@@ -45,6 +49,7 @@
 	  }
 	],
 	"contributors": [
+    "Tom Wilson <tom@jackhq.com> (https://github.com/twilson63)",
 	  "Jorrit Posthuma <> (https://github.com/JorritPosthuma)",
 	  "Jacob Gable <jacob.gable@gmail.com> (http://jacob4u2.posterous.com)",
 	  "Michael de Silva <michael@mwdesilva.com> (http://www.mwdesilva.com)",

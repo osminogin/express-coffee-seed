@@ -13,7 +13,6 @@ reset = '\x1B[0m'
 pkg = JSON.parse fs.readFileSync('./package.json')
 testCmd = pkg.scripts.test
 startCmd = pkg.scripts.start
-  
 
 log = (message, color, explanation) ->
   console.log color + message + reset + ' ' + (explanation or '')
@@ -33,14 +32,14 @@ test = (callback) ->
     '--globals'
     'hasCert,res'
     '--reporter'
-    'spec'
+    'min'
     '--compilers'
     'coffee:coffee-script/register'
     '--colors'
     '--require'
     'should'
     '--require'
-    './server'
+    'supertest'
   ]
   try
     cmd = which.sync 'mocha' 

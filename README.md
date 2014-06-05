@@ -93,6 +93,7 @@ to run mocha test suite
 
 ## Thanks to
 
+* [Tom Wilson](https://github.io/twilson63) for original coffee-express template
 * [Jeremy Ashkenas](https://github.com/jashkenas) for creating coffee-script
 * [TJ Holowaychuk](https://github.com/visionmedia) for creating express
 * [Miško Hevery](https://github.com/mhevery) for creating Jasmine-Node

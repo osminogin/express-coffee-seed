@@ -16,7 +16,6 @@ describe 'General', ->
     it "should not be here", (done) ->
       request(app)
         .get('/nonexistent/action')
-        .send( {} )
         .expect(404, {},
                 done
         )

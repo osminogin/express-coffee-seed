@@ -32,14 +32,14 @@ test = (callback) ->
     '--globals'
     'hasCert,res'
     '--reporter'
-    'min'
+    'spec'
     '--compilers'
     'coffee:coffee-script/register'
     '--colors'
     '--require'
     'should'
     '--require'
-    'supertest'
+    '.app'
   ]
   try
     cmd = which.sync 'mocha' 

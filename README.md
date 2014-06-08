@@ -1,6 +1,6 @@
-# Express Coffee Project Seed (0.0.1)
+# Express Coffee Project Seed (0.0.2)
 
-This is a Node Express CoffeeScript Stack Template based on
+This is a Node Express CoffeeScript Stack project template originally based on
 http://twilson63.github.io/express-coffee
 
 It comes ready to go with connect-assets that give you the option
@@ -11,12 +11,12 @@ This is a template that can be used to create nodejs applications using
 
 * Node v0.10.x
 * Express v3.2.x
-* CoffeeScript v1.6.x
+* CoffeeScript v1.7.x
 * Jade v0.30.0
 * Stylus v0.32.x 
 * bootstrap-stylus 2.3.1 (not a npm module)
-* Nib v0.9.x
-* Connect Assets v2.4.x
+* Nib v1.0.x
+* Connect Assets v3.0.x
 * MongoDB / Mongoose 3.6.x
 
 ## Requirements

@@ -10,7 +10,7 @@
   "scripts": {
     "install": "node ./node_modules/coffee-script/bin/cake build",
     "start": "node server.js",
-    "test": "mocha --require should --require supertest --compilers coffee:coffee-script/register --colors"
+    "test": "node ./node_modules/coffee-script/bin/cake  test"
   },
   "dependencies": {
     "body-parser": "1.0.x",
@@ -24,7 +24,7 @@
     "markdown": "0.4.0",
     "mocha": "^1.20.1",
     "mongoose": "3.8.x",
-    "nib": "0.9.x",
+    "nib": "1.0.x",
     "stylus": "0.43.x",
     "which": "1.0.5",
     "wrench": "1.5.x"
@@ -32,6 +32,7 @@
   "devDependencies": {
     "chai": "^1.9.1",
     "coffee-script": "*",
+    "cucumber": "^0.4.0",
     "ejs": "*",
     "grunt": "^0.4.5",
     "grunt-contrib-coffee": "^0.10.1",

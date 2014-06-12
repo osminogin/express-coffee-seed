@@ -11,6 +11,7 @@ lib-cov
 *.gz
 src/**/*.js
 src/**/*.map
+assets/vendor
 
 pids
 logs

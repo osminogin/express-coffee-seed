@@ -1,6 +1,6 @@
 {
   "name": "express-coffee-seed",
-  "version": "0.0.2",
+  "version": "0.0.3",
   "private": true,
   "author": "Vladimir Osintsev <oc@co.ru> (https://github.com/osminogin)",
   "repository": {
@@ -10,13 +10,13 @@
   "scripts": {
     "install": "node ./node_modules/coffee-script/bin/cake build",
     "start": "node server.js",
-    "test": "node ./node_modules/coffee-script/bin/cake  test"
+    "test": "node ./node_modules/coffee-script/bin/cake test"
   },
   "dependencies": {
     "body-parser": "1.0.x",
     "chai": "^1.9.1",
     "coffee-script": "1.7.x",
-    "connect-assets": "2.5.x",
+    "connect-assets": "3.0.x",
     "cookie-parser": "1.0.x",
     "express": "4.x",
     "express-session": "1.0.x",
@@ -39,9 +39,9 @@
     "mocha": "*",
     "node-inspector": "*",
     "puts": "*",
+    "stylus": "*",
     "request": "*",
     "should": "*",
-    "superagent": "^0.18.0",
     "supertest": "*",
     "supervisor": "*"
   },

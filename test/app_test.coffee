@@ -6,9 +6,9 @@ describe 'General', ->
   describe 'Front page', ->
     it "should be here", (done) ->
       request(app)
-        .get('/')
+        .get("/")
+        .send("{}")
         .expect(200, done)
-
   describe '404 Routing', ->
     it 'should not be here', (done) ->
       request(app)

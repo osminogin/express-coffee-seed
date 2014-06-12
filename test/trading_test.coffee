@@ -7,4 +7,5 @@ describe 'Trading 3', ->
     it "is there", (done) ->
       request(app)
         .get("/")
+        .send("{}")
         .expect(200, done)

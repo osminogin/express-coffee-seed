@@ -29,8 +29,6 @@ build = (callback) ->
 # mocha test
 test = (callback) ->
   options = [
-    '--reporter'
-    'spec'
     '--compilers'
     'coffee:coffee-script/register'
     '--colors'

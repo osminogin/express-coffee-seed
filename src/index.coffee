@@ -25,9 +25,10 @@ db = new Client()
 db.connect
   host: config.DB_HOST,
   user: config.DB_USER,
-  password: config.DB_PASS
+  password: config.DB_PASS,
+  db: config.DB_NAME
 
-db.on 'connect', ->
+#db.on 'connect', ->
 #  console.log 'Database connected'
 
 # Exit without database connection
@@ -43,6 +44,7 @@ app.set 'db', db
 app.use assets(paths: ["assets/js", "assets/css",
                        "public/vendor/bootstrap-stylus/stylus",
                        "public/vendor"])
+
 # Set the public folder as static assets.
 app.use express.static(process.cwd() + '/public')
 

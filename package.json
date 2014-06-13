@@ -8,9 +8,9 @@
     "url": "https://github.com/osminogin/express-coffee-seed.git"
   },
   "scripts": {
-    "install": "node ./node_modules/coffee-script/bin/cake build",
-    "start": "node server.js",
-    "test": "node ./node_modules/coffee-script/bin/cake test"
+    "install": "node ./node_modules/.bin/cake build",
+    "start": "node ./node_modules/.bin/cake dev",
+    "test": "node ./node_modules/.bin/cake test"
   },
   "dependencies": {
     "body-parser": "1.0.x",

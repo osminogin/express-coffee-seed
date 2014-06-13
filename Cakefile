@@ -36,8 +36,6 @@ test = (callback) ->
     '--compilers'
     'coffee:coffee-script/register'
     '--colors'
-    '--require'
-    'should'
   ]
   try
     cmd = which.sync 'mocha' 

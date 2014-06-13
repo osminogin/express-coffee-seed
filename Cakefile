@@ -68,9 +68,11 @@ task 'dev', 'start dev env', ->
   # watch_js
   supervisor = spawn 'node', [
     './node_modules/.bin/supervisor',
-    '-w',
+    '--watch',
     'app,views',
-    '-e', 
+    '--ignore',
+    'public,test,node_modules,scaffold',
+    '--extensions',
     'coffee|js|jade',
     'server.coffee'
   ]
@@ -98,9 +100,9 @@ task 'debug', 'start debug env', ->
 #  inspector.stdout.pipe process.stdout
 #  inspector.stderr.pipe process.stderr
   # run google chrome
-  chrome = spawn 'firefox', ['http://0.0.0.0:8080/debug?port=5858']
-  chrome.stdout.pipe process.stdout
-  chrome.stderr.pipe process.stderr
+#  chrome = spawn 'firefox', ['http://0.0.0.0:8080/debug?port=5858']
+#  chrome.stdout.pipe process.stdout
+#  chrome.stderr.pipe process.stderr
   log 'Debugging server', green
   
 option '-n', '--name [NAME]', 'name of model to `scaffold`'

@@ -1,24 +1,22 @@
-util = require 'util'
-inspect = util.inspect
-
-chai = require 'chai'
-chai.should()
+should = require('chai').should()
 
 app = require process.cwd() + '/app'
 db = app.get 'db'
 
 
-describe 'Database Server', ->
+describe 'Database', ->
   it 'should establish a connection', (done) ->
     db.connected.should.be.true
     done()
 
   it 'should be available databases', (done) ->
-#    db.query 'SHOW DATABASES'
-#    .on 'result', (res) ->
-#      console.log inspect res.count()
-#      res.on 'row', (row) ->
-#        console.log 'Result row: ' + row
-#      .on 'error', (err) ->
-#        console.log 'Result error: ' + err
-#        done(err)
+    count = 0
+    db.query 'SHOW DATABASES'
+    .on 'result', (res) ->
+      res.on 'row', (row) ->
+        count += 1
+      .on 'error', (err) ->
+        done(err)
+    .on 'end', ->
+      count.should.be.greaterThan 1
+      done()

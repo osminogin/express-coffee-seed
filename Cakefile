@@ -59,7 +59,7 @@ task 'test', 'Run Mocha tests', ->
 
 task 'dev', 'start dev env', ->
   # watch_coffee
-  options = ['-c', '-b', '-w', '-o', 'app', 'src']
+  options = ['-c', '-b', '-m', '-w', '-o', 'app', 'src']
   cmd = which.sync 'coffee'  
   coffee = spawn cmd, options
   coffee.stdout.pipe process.stdout
@@ -67,12 +67,12 @@ task 'dev', 'start dev env', ->
   log 'Watching coffee files', green
   # watch_js
   supervisor = spawn 'node', [
-    './node_modules/supervisor/lib/cli-wrapper.js',
+    './node_modules/.bin/supervisor',
     '-w',
     'app,views',
     '-e', 
-    'js|jade', 
-    'server'
+    'coffee|js|jade',
+    'server.coffee'
   ]
   supervisor.stdout.pipe process.stdout
   supervisor.stderr.pipe process.stderr
@@ -80,7 +80,7 @@ task 'dev', 'start dev env', ->
   
 task 'debug', 'start debug env', ->
   # watch_coffee
-  options = ['-c', '-b', '-w', '-o', 'app', 'src']
+  options = ['-c', '-b', '-m', '-w', '-o', 'app', 'src']
   cmd = which.sync 'coffee'  
   coffee = spawn cmd, options
   coffee.stdout.pipe process.stdout
@@ -94,11 +94,11 @@ task 'debug', 'start debug env', ->
   app.stdout.pipe process.stdout
   app.stderr.pipe process.stderr
   # run node-inspector
-  inspector = spawn 'node-inspector'
-  inspector.stdout.pipe process.stdout
-  inspector.stderr.pipe process.stderr
+#  inspector = spawn 'node-inspector'
+#  inspector.stdout.pipe process.stdout
+#  inspector.stderr.pipe process.stderr
   # run google chrome
-  chrome = spawn 'google-chrome', ['http://0.0.0.0:8080/debug?port=5858']
+  chrome = spawn 'firefox', ['http://0.0.0.0:8080/debug?port=5858']
   chrome.stdout.pipe process.stdout
   chrome.stderr.pipe process.stderr
   log 'Debugging server', green

@@ -19,7 +19,7 @@ log = (message, color, explanation) ->
 
 # Compiles app.coffee and src directory to the .app directory
 build = (callback) ->
-  options = ['-c','-b', '-o', '.app', 'src']
+  options = ['-c','-b', '-o', 'app', 'src']
   cmd = which.sync 'coffee'
   coffee = spawn cmd, options
   coffee.stdout.pipe process.stdout
@@ -38,8 +38,6 @@ test = (callback) ->
     '--colors'
     '--require'
     'should'
-    '--require'
-    '.app'
   ]
   try
     cmd = which.sync 'mocha' 
@@ -63,7 +61,7 @@ task 'test', 'Run Mocha tests', ->
 
 task 'dev', 'start dev env', ->
   # watch_coffee
-  options = ['-c', '-b', '-w', '-o', '.app', 'src']
+  options = ['-c', '-b', '-w', '-o', 'app', 'src']
   cmd = which.sync 'coffee'  
   coffee = spawn cmd, options
   coffee.stdout.pipe process.stdout
@@ -73,7 +71,7 @@ task 'dev', 'start dev env', ->
   supervisor = spawn 'node', [
     './node_modules/supervisor/lib/cli-wrapper.js',
     '-w',
-    '.app,views', 
+    'app,views',
     '-e', 
     'js|jade', 
     'server'
@@ -84,7 +82,7 @@ task 'dev', 'start dev env', ->
   
 task 'debug', 'start debug env', ->
   # watch_coffee
-  options = ['-c', '-b', '-w', '-o', '.app', 'src']
+  options = ['-c', '-b', '-w', '-o', 'app', 'src']
   cmd = which.sync 'coffee'  
   coffee = spawn cmd, options
   coffee.stdout.pipe process.stdout

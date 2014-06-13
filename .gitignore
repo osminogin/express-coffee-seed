@@ -1,4 +1,4 @@
-.app/
+app/
 .DS_Store
 .idea
 lib-cov
@@ -9,8 +9,6 @@ lib-cov
 *.out
 *.pid
 *.gz
-src/**/*.js
-src/**/*.map
 public/vendor/*
 
 pids

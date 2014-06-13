@@ -12,10 +12,10 @@ sequelize = new Sequelize config.DB_NAME, config.DB_USER, config.DB_PASS,
   logging: off
 
 # load models
-models = ['Order']
+models = ['User'
+          'Order']
 models.forEach (model) ->
   module.exports[model] = sequelize.import __dirname + '/' + model
-
 
 # describe relationships
 #(function(m) {

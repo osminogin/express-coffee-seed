@@ -1,6 +1,6 @@
 express = require 'express'
-stylus = require 'stylus'
 assets = require 'connect-assets'
+stylus = require 'stylus'
 mongoose = require 'mongoose'
 session = require 'express-session'
 cookieParser = require 'cookie-parser'
@@ -18,16 +18,31 @@ env = process.env.NODE_ENV or "development"
 config = require "./config"
 config.setEnvironment env
 
-# db_config = "mongodb://#{config.DB_USER}:#{config.DB_PASS}@#{config.DB_HOST}:#{config.DB_PORT}/#{config.DB_NAME}"
-# mongoose.connect db_config
-#if env != 'production'
-#  mongoose.connect 'mongodb://localhost/example'
-#else
-#  console.log('If you are running in production, you may want to modify the mongoose connect path')
+#### Database connection
+# Load MariaDB connector
+Client = require 'mariasql'
+db = new Client()
+db.connect
+  host: config.DB_HOST,
+  user: config.DB_USER,
+  password: config.DB_PASS
 
-#### View initialization 
+db.on 'connect', ->
+#  console.log 'Database connected'
+
+# Exit without database connection
+db.on 'error', (err) ->
+  console.log 'Database ' + err
+  process.exit()
+
+#app.set 'models', require './models'
+app.set 'db', db
+
+#### View initialization
 # Add Connect Assets.
-app.use assets()
+app.use assets(paths: ["assets/js", "assets/css",
+                       "public/vendor/bootstrap-stylus/stylus",
+                       "public/vendor"])
 # Set the public folder as static assets.
 app.use express.static(process.cwd() + '/public')
 
@@ -40,6 +55,7 @@ app.use session(
   cookie:
     secure: true
 )
+
 
 # Set View Engine.
 app.set 'view engine', 'jade'

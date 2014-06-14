@@ -47,16 +47,13 @@ test = (callback) ->
 task 'build', ->
   build -> log ":)", green
 
-task 'spec', 'Run Mocha tests', ->
-  build -> test -> log ":)", green
-
 task 'test', 'Run Mocha tests', ->
   build -> test -> log ":)", green
 
-task 'dev', 'start dev env', ->
+task 'run', 'start dev server', ->
   # watch_coffee
   options = ['-c', '-b', '-m', '-w', '-o', 'app', 'src']
-  cmd = which.sync 'coffee'  
+  cmd = which.sync 'coffee'
   coffee = spawn cmd, options
   coffee.stdout.pipe process.stdout
   coffee.stderr.pipe process.stderr
@@ -64,6 +61,7 @@ task 'dev', 'start dev env', ->
   # watch_js
   supervisor = spawn 'node', [
     './node_modules/.bin/supervisor',
+    '-n',
     '--watch',
     'app,views',
     '--ignore',

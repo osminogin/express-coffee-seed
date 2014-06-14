@@ -25,5 +25,9 @@ models.forEach (model) ->
 #  m.User.hasMany(m.PhoneNumber);
 #})(module.exports);
 
+#Task.belongsTo(User)
+#User.hasMany(Task)
+#User.hasMany(Tool, { as: 'Instruments' })
+
 # export connection
 module.exports.sequelize = sequelize

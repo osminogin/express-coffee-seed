@@ -11,7 +11,7 @@ describe 'Database', ->
       .sync force: true
       .complete (err) ->
         throw err if err?
-        # check data
+        # check empty data
         db.Order.findAll()
           .success (orders) ->
             orders.should.have.length 0

@@ -1,49 +1,63 @@
-<%=: name | capitalize %> = require '../models/<%=: name %>'
+app = require process.cwd() + '/app'
+db  = app.get 'models'
 
 # <%=: name | capitalize %> model's CRUD controller.
-module.exports = 
+module.exports =
 
   # Lists all <%=: name %>s
   index: (req, res) ->
-    <%=: name | capitalize %>.find {}, (err, <%=: name %>s) ->
-      res.send <%=: name %>s
-      
+    db.<%=: name | capitalize %>.findAll()
+      .success (result) ->
+        res.send result
+
   # Creates new <%=: name %> with data from `req.body`
   create: (req, res) ->
-    <%=: name %> = new <%=: name | capitalize %> req.body
-    <%=: name %>.save (err, <%=: name %>) ->
-      if not err
-        res.send <%=: name %>
+    db.<%=: name | capitalize %>.create req.body
+      .success (result) ->
         res.statusCode = 201
-      else
+        res.send result
+      .error (err) ->
+        res.statusCode = 501
         res.send err
-        res.statusCode = 500
-        
+
   # Gets <%=: name %> by id
   get: (req, res) ->
-    <%=: name | capitalize %>.findById req.params.id, (err, <%=: name %>) ->
-      if not err
-        res.send <%=: name %>
-      else
-        res.send err
+    db.<%=: name | capitalize %>.find req.params.id
+      .success (result) ->
+        if not result?
+          res.statusCode = 404
+          res.render '404', 404
+        else
+          res.send result
+      .error (err) ->
         res.statusCode = 500
-             
+        res.send err
+
   # Updates <%=: name %> with data from `req.body`
   update: (req, res) ->
-    <%=: name | capitalize %>.findByIdAndUpdate req.params.id, {"$set":req.body}, (err, <%=: name %>) ->
-      if not err
-        res.send <%=: name %>
-      else
-        res.send err
-        res.statusCode = 500
-    
+    db.<%=: name | capitalize %>.update req.body,
+        id: req.params.id
+      .complete (err, result) ->
+        if not err?
+          res.statusCode = 204
+          res.end()
+        else
+          res.statusCode = 500
+          res.send err
+
   # Deletes <%=: name %> by id
   delete: (req, res) ->
-    <%=: name | capitalize %>.findByIdAndRemove req.params.id, (err) ->
-      if not err
-        res.send {}
-      else
-        res.send err
+    db.<%=: name | capitalize %>.find
+        where:
+          id: req.params.id
+      .success (result) ->
+        if not result?
+          res.statusCode = 404
+          res.render '404', 404
+        else
+          result.destroy().success ->
+            res.statusCode = 204
+            res.end()
+      .error (err) ->
         res.statusCode = 500
-      
-  
+        res.send err

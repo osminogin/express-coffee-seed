@@ -11,11 +11,13 @@ sequelize = new Sequelize config.DB_NAME, config.DB_USER, config.DB_PASS,
   dialect: 'mariadb'
   logging: off
 
+
 # load models
+# TODO: Need loads models automaticaly
 models = ['User'
           'Order']
 models.forEach (model) ->
-  module.exports[model] = sequelize.import __dirname + '/' + model
+  module.exports[model] = sequelize.import __dirname + '/' + model.toLowerCase()
 
 # describe relationships
 #(function(m) {

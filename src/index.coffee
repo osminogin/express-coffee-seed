@@ -15,7 +15,7 @@ app.port = process.env.PORT or process.env.VMC_APP_PORT or 3000
 
 #### Database connection
 db.sequelize
-  .sync force: false
+  .sync force: no
   .complete (err) ->
     throw err if err?
 
@@ -53,9 +53,7 @@ app.use bodyParser()
 #### Finalization
 # Initialize routes
 routes = require './routes'
-routes(app)
-
+routes app
 
 # Export application object
 module.exports = app
-

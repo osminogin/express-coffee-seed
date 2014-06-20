@@ -50,7 +50,7 @@ task 'build', ->
 task 'test', 'Run Mocha tests', ->
   build -> test -> log ":)", green
 
-task 'run', 'start dev server', ->
+task 'run', 'start server', ->
   # watch_coffee
   options = ['-c', '-b', '-m', '-w', '-o', 'app', 'src']
   cmd = which.sync 'coffee'
@@ -61,14 +61,13 @@ task 'run', 'start dev server', ->
   # watch_js
   supervisor = spawn 'node', [
     './node_modules/.bin/supervisor',
-    '-n',
     '--watch',
-    'app,views',
+    'src,views',
     '--ignore',
     'public,test,node_modules,scaffold',
     '--extensions',
     'coffee|js|jade',
-    'server.coffee'
+    'server'
   ]
   supervisor.stdout.pipe process.stdout
   supervisor.stderr.pipe process.stderr

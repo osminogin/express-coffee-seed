@@ -1,15 +1,14 @@
 request = require 'supertest'
 
-<%=: name | capitalize %> = require process.cwd() + '/.app/models/<%=: name %>'
-app = require process.cwd() + '/.app'
-
+app = require process.cwd() + '/app'
+db  = app.get 'models'
 
 INITIAL_DATA = {
-  "someField":"Some Data"
+  "someField": "Some Data"
 }
 
 UPDATED_DATA = {
-  "someField":"Another data"
+  "someField": "Another data"
 }
 
 cleanDB = (done) ->

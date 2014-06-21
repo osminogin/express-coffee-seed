@@ -47,7 +47,7 @@ app.use session(
 app.set 'view engine', 'jade'
 
 # Parses JSON or XML bodies into `req.body` object
-app.use bodyParser()
+app.use bodyParser.json()
 
 
 #### Finalization

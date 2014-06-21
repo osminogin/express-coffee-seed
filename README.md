@@ -1,7 +1,7 @@
-# Express Coffee Project Seed (0.1.1)
+# Express Coffee Project Seed (0.2.0)
 
-This is a Node Express CoffeeScript Stack project template originally based on
-http://twilson63.github.io/express-coffee
+This is a Node.js Express CoffeeScript stack project seed originally based on
+http://twilson63.github.io/express-coffee template.
 
 It comes ready to go with connect-assets that give you the option
 to use coffee-script and stylus for the client side. (This feature temporarily 
@@ -13,6 +13,7 @@ This is a boilerplate that can be used to create nodejs applications using
 * Node v0.10.x
 * Express v4.4.x
 * CoffeeScript v1.7.x
+* Angular v1.3.x
 * Jade v1.3.1
 * Stylus v0.32.x 
 * bootstrap-stylus 3.1.1 (not a npm module)
@@ -22,9 +23,10 @@ This is a boilerplate that can be used to create nodejs applications using
 
 ## Requirements
 
-* [NodeJs](http://nodejs.org)
+* [Node.js](http://nodejs.org)
 * [Express](http://expressjs.com)
 * [CoffeeScript](http://coffeescript.org)
+* [AngularJS](https://angularjs.org)
 * [Jade](http://jade-lang.com/)
 * [Stylus](http://learnboost.github.io/stylus/)
 * [Bower](http://bower.io/)

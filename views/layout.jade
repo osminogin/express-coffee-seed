@@ -5,20 +5,43 @@ doctype html
 // [if (gte IE 9)|!(IE)]><!--><html lang="en"> <!--<![endif]
 head
   meta(charset='utf-8')
-  title Express CoffeeScript Template
+  title Express CoffeeScript Project Seed
   meta(name='description', content='')
   meta(name='author', content='')
   meta(name="viewport", content="width=device-width, initial-scale=1.0")
 
-  // CSS
-  //!= css('styles')
-  
-body
-  block content
+  link(rel='stylesheet', href='/vendor/bootstrap/dist/css/bootstrap.min.css')
+  link(rel='stylesheet', href='/vendor/bootstrap/dist/css/bootstrap-theme.min.css')
+  link(rel='stylesheet', href='/css/styles.css')
 
-  //!= js('//cdnjs.cloudflare.com/ajax/libs/jquery/1.9.1/jquery.min.js')
-  //!= js('//netdna.bootstrapcdn.com/twitter-bootstrap/2.3.1/js/bootstrap.min.js')
-  script(type='text/javascript' src='public/vendor/angular/angular.min.js')
-  //!= js('app')
+body
+  .container
+
+    .navbar.navbar-default(role='navigation')
+      .container-fluid
+
+        .navbar-header
+          a.navbar-brand(href='#') Project name
+
+        .collapse.navbar-collapse
+          ul.nav.navbar-nav
+            li.active
+              a(href='#') Home
+            li
+              a(href='#about') About
+            li
+              a(href='#contact') Contact
+
+          ul.nav.navbar-nav.navbar-right
+            li.active
+              a(href='/signup') Signup
+            li
+              a(href='/login') Login
+
+    block content
+
+  script(type='text/javascript', src='/vendor/jquery/dist/jquery.min.js')
+  script(type='text/javascript', src='/vendor/bootstrap/dist/css/bootstrap.min.js')
+  script(type='text/javascript', src='/vendor/angular/angular.min.js')
 
 | </html>

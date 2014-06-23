@@ -1,7 +1,9 @@
-# Express Coffee Project Seed (0.2.0)
+# Express Coffee Project Seed (0.2.1)
 
 This is a Node.js Express CoffeeScript stack project seed originally based on
-http://twilson63.github.io/express-coffee template.
+[Tom Wilson coffee-express template](https://github.io/twilson63), but use
+Sequelize as database ORM (working with MySQL, MariaDB, SQLite and PostgreSQL 
+databases).
 
 It comes ready to go with connect-assets that give you the option
 to use coffee-script and stylus for the client side. (This feature temporarily 
@@ -13,28 +15,24 @@ This is a boilerplate that can be used to create nodejs applications using
 * Node v0.10.x
 * Express v4.4.x
 * CoffeeScript v1.7.x
-* Angular v1.3.x
-* Jade v1.3.1
-* Stylus v0.32.x 
-* bootstrap-stylus 3.1.1 (not a npm module)
-* Nib v1.0.x
+* Sequelize v1.7.x
+* Bootstrap 3.1.1 (not a npm module)
 * Connect Assets v3.0.x
-* Sequelize (ORM working with MySQL, MariaDB, SQLite and PostgreSQL databases)
+* Angular v1.2.x
+* Jade v1.3.1
 
 ## Requirements
 
 * [Node.js](http://nodejs.org)
 * [Express](http://expressjs.com)
 * [CoffeeScript](http://coffeescript.org)
-* [AngularJS](https://angularjs.org)
-* [Jade](http://jade-lang.com/)
-* [Stylus](http://learnboost.github.io/stylus/)
 * [Bower](http://bower.io/)
-* [bootstrap-stylus](https://github.com/Acquisio/bootstrap-stylus)
-* [Nib](http://visionmedia.github.io/nib/)
-* [connect-assets](http://github.com/TrevorBurnham/connect-assets)
 * [Mocha](http://visionmedia.github.com/mocha/)
 * [Sequelize](http://sequelizejs.com/)
+* [connect-assets](http://github.com/TrevorBurnham/connect-assets)
+* [Bootstrap](https://github.com/twbs/bootstrap)
+* [AngularJS](https://angularjs.org)
+* [Jade](http://jade-lang.com/)
 
 These requirements will install with NPM and Bower, just do 
 

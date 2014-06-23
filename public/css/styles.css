@@ -1,0 +1,12 @@
+body {
+    margin: 20px;
+}
+
+.jumbotron {
+    background-color: #fff;
+}
+
+.jumbotron p {
+    margin-top: 30px;
+    margin-bottom: 30px;
+}

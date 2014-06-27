@@ -31,6 +31,8 @@ test = (callback) ->
   options = [
     '--compilers'
     'coffee:coffee-script/register'
+    '--require'
+    'test/helpers.coffee'
     '--colors'
   ]
   try

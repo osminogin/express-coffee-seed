@@ -1,7 +1,5 @@
-request = require 'supertest'
-app = require process.cwd() + '/app'
-
 describe 'Ping Pong', ->
+
   it "should say hello world", (done) ->
     request(app)
       .get("/ping")

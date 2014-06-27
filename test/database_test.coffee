@@ -27,29 +27,6 @@ describe 'Database', ->
       user.id.should.equal 1
       done()
 
-  it 'should create new order for user', (done) ->
-    db.Order.create
-      UserId: 1
-      bid: 2.3666
-      value: 1
-    .complete (err, order) ->
-      done err if err?
-      order.should.exist
-      order.should.have.property 'bid'
-      order.should.have.property 'ask'
-      order.should.have.property 'value'
-      order.should.have.property 'UserId'
-      order.id.should.equal 1
-      done()
-
-  it 'should get orders related to test user', (done) ->
-    db.User.find(1).complete (err, user) ->
-      done err if err?
-      user.getOrders().complete (err, orders) ->
-        done err if err?
-        orders.should.have.length 1
-        done()
-
   it 'should be a available databases', (done) ->
     db.sequelize
       .query 'SHOW DATABASES'

@@ -1,7 +1,14 @@
 module.exports = (sequelize, DataTypes) ->
 
   sequelize.define 'Order',
-    first_name: DataTypes.STRING
-    last_name: DataTypes.STRING
-    item_title: DataTypes.STRING
-    total_price: DataTypes.STRING
+      bid: DataTypes.FLOAT.UNSIGNED
+      ask: DataTypes.FLOAT.UNSIGNED
+      value:
+        type: DataTypes.FLOAT.UNSIGNED
+        allowNull: false
+        validate:
+          notNull: true
+    , validate:
+        isCorrectOrder: ->
+          if @bid? is @ask?
+            throw new Error 'Order must be bid or ask (but not both)'

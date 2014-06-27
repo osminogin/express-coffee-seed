@@ -1,7 +1,6 @@
 request = require 'supertest'
 app = require process.cwd() + '/app'
 
-
 describe 'General', ->
   describe 'Front page', ->
     it "should be here", (done) ->

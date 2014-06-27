@@ -1,7 +1,6 @@
 request = require 'supertest'
 app = require process.cwd() + '/app'
 
-
 describe 'Trading', ->
   describe 'Test page', ->
     it "is there", (done) ->

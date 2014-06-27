@@ -1,12 +1,12 @@
 request = require 'supertest'
 app = require process.cwd() + '/app'
 
-
 describe 'Ping Pong', ->
   it "should say hello world", (done) ->
     request(app)
       .get("/ping")
-      .expect(200, {"hello":["world"]}, done)
+      .expect(200, hello: ['world'], done)
+
   it "should respond with sent data", (done) ->
     pongData = {"pong":"data"}
     query = {"q":"something"}

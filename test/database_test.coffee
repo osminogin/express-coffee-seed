@@ -1,8 +1,6 @@
 should = require('chai').should()
-
 app = require process.cwd() + '/app'
 db = app.get 'models'
-
 
 describe 'Database', ->
   it 'should sync with last database schema', (done) ->

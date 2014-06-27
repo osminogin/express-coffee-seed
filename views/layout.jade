@@ -28,15 +28,17 @@ body
             li.active
               a(href='#') Home
             li
-              a(href='#about') About
-            li
-              a(href='#contact') Contact
+              a(href='/private') Private
 
           ul.nav.navbar-nav.navbar-right
-            li.active
-              a(href='/signup') Signup
-            li
-              a(href='/login') Login
+            if user
+              li
+                a(href='/user/logout') Logout
+            else
+              li.active
+                a(href='/user/signup') Signup
+              li
+                a(href='/user/login') Login
 
     block content
 

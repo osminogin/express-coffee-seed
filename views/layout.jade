@@ -28,12 +28,14 @@ body(ng-app="myApp")
             li.active
               a(href='#') Home
             li
+              a(href='/order') Orders
+            li
               a(href='/private') Private
 
           ul.nav.navbar-nav.navbar-right
             if user
               li
-                a(href='/user/#{user.username}') Account: #{user.username}
+                a(href='/user/#{user.id}') Account: #{user.username}
               li
                 a(href='/user/logout') Logout
             else

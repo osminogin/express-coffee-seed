@@ -2,16 +2,18 @@ extends ../layout
 
 block content
 
-  form(method="post", action="/user/login")
+  h2 Login form
+
+  form(method="post", action="/user/login", role="form")
     fieldset
-      legend=title
-      .clearfix
-        label(for="username") Username
+      legend=username
+      .form-group
+        label(for="username") Username:
         .input
-          input.xlarge#username(type="text", name="username")
-      .clearfix
-        label(for="password") Password
+          input.input-lg#username(type="text", name="username")
+      .form-group
+        label(for="password") Password:
         .input
-          input.xlarge#password(type="text", name="password")
-      .actions
-        input.btn-lg.btn-primary(type="submit", value="Login")
+          input.input-lg#password(type="text", name="password")
+      .form-group
+        input.btn.btn-lg.btn-primary(type="submit", value="Login")

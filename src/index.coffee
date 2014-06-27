@@ -13,12 +13,13 @@ app = express()
 # Define port to listen
 app.port = process.env.PORT or process.env.VMC_APP_PORT or 3000
 
-#### Database connection
+#### Establishing database connection
 db = require './models'
+
+# Print error message if connection fails
 db.sequelize
   .sync force: no
-  .complete (err) ->
-    throw err if err?
+  .complete (err) -> throw err[0] if err?
 
 # Store database connection in shared variable
 app.set 'models', db

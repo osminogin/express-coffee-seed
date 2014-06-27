@@ -1,7 +1,7 @@
 
 # Sends `{"hello":["world"]}` in JSON
 exports.index = (req, res) ->
-  data = {"hello":["world"]}
+  data = hello: ['world']
   res.send data
   
 # Sends anything from request back as JSON

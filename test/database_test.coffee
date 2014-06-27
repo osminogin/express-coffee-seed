@@ -10,7 +10,7 @@ describe 'Database', ->
     db.sequelize
       .sync force: true
       .complete (err) ->
-        throw err if err?
+        done err if err?
         # check empty data
         db.Order.findAll()
           .success (orders) ->

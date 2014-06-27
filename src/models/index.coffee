@@ -9,7 +9,7 @@ sequelize = new Sequelize config.DB_NAME, config.DB_USER, config.DB_PASS,
   host: 'localhost'
   port: 3306
   dialect: 'mariadb'
-  logging: off
+  logging: console.log
 
 
 # load models

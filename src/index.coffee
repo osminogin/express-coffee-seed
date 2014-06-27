@@ -1,10 +1,10 @@
 express = require 'express'
 assets = require 'connect-assets'
-stylus = require 'stylus'
+passport = require 'passport'
+flash = require 'connect-flash'
 session = require 'express-session'
 cookieParser = require 'cookie-parser'
 bodyParser = require 'body-parser'
-db = require './models'
 
 #### Basic application initialization
 # Create app instance
@@ -14,6 +14,7 @@ app = express()
 app.port = process.env.PORT or process.env.VMC_APP_PORT or 3000
 
 #### Database connection
+db = require './models'
 db.sequelize
   .sync force: no
   .complete (err) ->
@@ -36,24 +37,32 @@ app.use express.static(process.cwd() + '/public')
 console.log "setting session/cookie"
 app.use cookieParser()
 app.use session(
-  secret: "** CHANGE ** ME **"
-  key: "sid"
-  cookie:
-    secure: true
+  secret: "^^CHANGE^^ME^^"
 )
 
+# Authentication
+app.use passport.initialize()
+app.use passport.session()
+
+# Flash messages
+app.use flash()
 
 # Set View Engine.
 app.set 'view engine', 'jade'
 
 # Parses JSON or XML bodies into `req.body` object
 app.use bodyParser.json()
-
+app.use bodyParser.urlencoded extended: no
 
 #### Finalization
+# Setup authentication
+auth = require './config/passport'
+auth app, passport
+
 # Initialize routes
 routes = require './routes'
-routes app
+routes app, passport
+
 
 # Export application object
 module.exports = app

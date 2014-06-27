@@ -1,0 +1,17 @@
+extends ../layout
+
+block content
+
+  form(method="post", action="/user/login")
+    fieldset
+      legend=title
+      .clearfix
+        label(for="username") Username
+        .input
+          input.xlarge#username(type="text", name="username")
+      .clearfix
+        label(for="password") Password
+        .input
+          input.xlarge#password(type="text", name="password")
+      .actions
+        input.btn-lg.btn-primary(type="submit", value="Login")

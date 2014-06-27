@@ -13,5 +13,3 @@ module.exports =
 	destroy: (req, res) ->
 		delete req.session.authorized
 		res.redirect '/private'
-			
-		

@@ -20,16 +20,11 @@ models.forEach (model) ->
   module.exports[model] = sequelize.import __dirname + '/' + model.toLowerCase()
 
 # describe relationships
-#(function(m) {
-#  m.PhoneNumber.belongsTo(m.User);
-#  m.Task.belongsTo(m.User);
-#  m.User.hasMany(m.Task);
-#  m.User.hasMany(m.PhoneNumber);
-#})(module.exports);
-
-#Task.belongsTo(User)
-#User.hasMany(Task)
-#User.hasMany(Tool, { as: 'Instruments' })
+((m) ->
+  m.Order.belongsTo m.User
+  m.User.hasMany m.Order, as: 'Orders'
+  return
+) module.exports
 
 # export connection
 module.exports.sequelize = sequelize

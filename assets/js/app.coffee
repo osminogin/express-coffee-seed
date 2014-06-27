@@ -1,3 +1,14 @@
-$ ->
-  x = -> $('<h2>Express Coffee Template 1.4</h2>').prependTo('.right')
-  setTimeout x, 500
+angular.module 'myApp', []
+
+  .controller 'DemoController', class
+    constructor: (@$location) ->
+      @field = 'Demo'
+
+    method: ->
+      'Method'
+
+    methodWithParam: (param) ->
+      "Param: #{param}"
+
+    accessFieldFromMethod: ->
+      "Path: #{@$location.absUrl()}"

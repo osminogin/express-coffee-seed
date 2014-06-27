@@ -14,7 +14,8 @@ head
   link(rel='stylesheet', href='/vendor/bootstrap/dist/css/bootstrap-theme.min.css')
   link(rel='stylesheet', href='/css/styles.css')
 
-body
+body(ng-app="myApp")
+
   .container
 
     .navbar.navbar-default(role='navigation')
@@ -46,4 +47,5 @@ body
   script(type='text/javascript', src='/vendor/bootstrap/dist/css/bootstrap.min.js')
   script(type='text/javascript', src='/vendor/angular/angular.min.js')
 
+  != js('app')
 | </html>

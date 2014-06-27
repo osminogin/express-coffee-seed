@@ -25,10 +25,7 @@ app.set 'models', db
 
 #### View initialization
 # Add Connect Assets.
-#app.use assets(paths: ["assets/js"
-#                       "assets/css"
-#                       "public/vendor/bootstrap-stylus/stylus"
-#                       "public/vendor"])
+app.use assets(paths: ["assets/js"])
 
 # Set the public folder as static assets.
 app.use express.static(process.cwd() + '/public')

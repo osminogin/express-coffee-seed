@@ -2,7 +2,7 @@ angular.module 'myApp', []
 
   .controller 'DemoController', class
     constructor: (@$location) ->
-      @field = 'Demo'
+      @projectName = 'Express Coffee Seed'
 
     method: ->
       'Method'

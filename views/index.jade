@@ -3,14 +3,15 @@ extends layout
 block content
 
   div(ng-controller="DemoController as demo")
-    h2 Express Coffee Seed
 
-    p This example is a quick exercise to illustrate how the default, static navbar and fixed to top navbar work. It includes the responsive CSS and HTML, so it also adapts to your viewport and device.</p>
-    if user
-      p Username: #{user.username}
+    .jumbotron
+      h2 {{ demo.projectName }}
+      p.lead This example is a quick exercise to illustrate how the default, static navbar and fixed to top navbar work. It includes the responsive CSS and HTML, so it also adapts to your viewport and device.
+      p
+        a.btn.btn-lg.btn-success(href='https://github.com/osminogin/express-coffee-seed', role='button') Fork me on GitHub »
+        a.btn.btn-lg.btn-primary(href='https://github.com/osminogin/express-coffee-seed#readme', role='button') Read documentation »
 
     p
-      | {{ demo.field }}
+      if user
+        | Username: #{user.username}
 
-    p
-      a.btn.btn-lg.btn-primary(href='https://github.com/osminogin/express-coffee-seed#readme', role='button') Read documentation »

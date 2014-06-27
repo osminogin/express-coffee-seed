@@ -20,6 +20,7 @@ module.exports = (app, passport) ->
         where:
           username: username
           password: password
+          isActive: true
       .complete (err, user) ->
         done err if err?
         done null, user

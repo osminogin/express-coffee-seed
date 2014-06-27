@@ -17,4 +17,4 @@ module.exports = (sequelize, DataTypes) ->
     isActive:
       type: DataTypes.BOOLEAN
       allowNull: false
-      defaultValue: false
+      defaultValue: true

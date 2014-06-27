@@ -1,3 +1,5 @@
+fs = require 'fs'
+path = require 'path'
 Sequelize = require 'sequelize'
 config = require process.cwd() + '/app/config'
 
@@ -11,13 +13,15 @@ sequelize = new Sequelize config.DB_NAME, config.DB_USER, config.DB_PASS,
   dialect: 'mariadb'
   logging: console.log
 
-
-# load models
-# TODO: Need loads models automaticaly
-models = ['User'
-          'Order']
-models.forEach (model) ->
-  module.exports[model] = sequelize.import __dirname + '/' + model.toLowerCase()
+# load models automatically from dir
+fs.readdirSync(__dirname)
+  .filter (file) ->
+    if file.search(/\.map$/) is -1 and file isnt 'index.js'
+        file
+  .forEach (file) ->
+    model = file.replace /^./, (match) -> match.toUpperCase()
+    model = model.replace /\.\w+$/, '' # trim file suffix
+    module.exports[model] = sequelize.import path.join __dirname, file
 
 # describe relationships
 ((m) ->

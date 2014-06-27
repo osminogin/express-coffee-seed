@@ -5,3 +5,18 @@ body {
 .btn {
     margin-bottom: 10px;
 }
+
+.jumbotron {
+    padding-top: 26px;
+    padding-bottom: 16px;
+    background-color: #f8f8f8;
+}
+
+.jumbotron p.lead {
+    margin-top: 28px;
+    margin-bottom: 28px;
+}
+
+.jumbotron a.btn {
+    margin-right: 24px;
+}

@@ -1,14 +1,11 @@
 doctype html
-//if lt IE 7 ]><html class="ie ie6" lang="en">
-//if IE 7 ]><html class="ie ie7" lang="en">
-//if IE 8 ]><html class="ie ie8" lang="en">
-// [if (gte IE 9)|!(IE)]><!--><html lang="en"> <!--<![endif]
 head
   meta(charset='utf-8')
+  meta(http-equiv='X-UA-Compatible', content='IE=edge')
   title Express CoffeeScript Project Seed
   meta(name='description', content='')
   meta(name='author', content='')
-  meta(name="viewport", content="width=device-width, initial-scale=1.0")
+  meta(name='viewport', content='width=device-width, initial-scale=1.0')
 
   link(rel='stylesheet', href='/vendor/bootstrap/dist/css/bootstrap.min.css')
   link(rel='stylesheet', href='/css/styles.css')
@@ -28,23 +25,25 @@ body(ng-app="myApp")
             li.active
               a(href='#') Home
             li
+              a(href='/order') Orders
+            li
               a(href='/private') Private
 
           ul.nav.navbar-nav.navbar-right
             if user
               li
-                a(href='/user/#{user.username}') Account: #{user.username}
+                a(href='/user/#{user.id}') Account: #{user.username}
               li
                 a(href='/user/logout') Logout
             else
               li.active
-                a(href='/user/signup') Signup
+                a(href='/user/signup') Sign up
               li
                 a(href='/user/login') Login
 
-  .row
-    .col-lg-offset-1.col-lg-10
-      block content
+    .row
+      .col-lg-offset-1.col-lg-10
+        block content
 
   script(type='text/javascript', src='/vendor/jquery/dist/jquery.min.js')
   script(type='text/javascript', src='/vendor/bootstrap/dist/css/bootstrap.min.js')

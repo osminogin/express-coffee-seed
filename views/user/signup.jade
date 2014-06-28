@@ -2,22 +2,21 @@ extends ../layout
 
 block content
 
-  h2 Create account
+  .row
+    .col-lg-5.col-lg-offset-3.well
+      h2 Create new account
 
-  form(method="post", action="/user/signup", role="form")
-    fieldset
-      legend=username
-      .form-group
-        label(for="username") Username:
-        .input
-          input.input-lg#username(type="text", name="username")
-      .form-group
-        label(for="password") Password:
-        .input
-          input.input-lg#password1(type="text", name="password1")
-      .form-group
-        label(for="password") Repeat password:
-        .input
-          input.input-lg#password2(type="text", name="password2")
-      .form-actions.form-group
-        input.btn.btn-success.btn-lg(type="submit", value="Register")
+      form(method="post", action="/user/signup", role="form")
+        fieldset
+          legend=username
+          .form-group
+            label(for="username") Username:
+            input.input-lg.form-control#username(type="text", name="username")
+          .form-group
+            label(for="password") Password:
+            input.input-lg.form-control#password(type="text", name="password1")
+          .form-group
+            label(for="password2") Repeat password:
+            input.input-lg.form-control#password2(type="text", name="password2")
+          .form-actions
+            input.btn.btn-success.btn-lg.btn-block(type="submit", value="Register me, I confirm this information")

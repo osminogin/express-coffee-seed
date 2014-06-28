@@ -2,18 +2,22 @@ extends ../layout
 
 block content
 
-  h2 Login form
+  .row
+    .col-lg-5.col-lg-offset-3.well
+      h2 Existing user login
 
-  form(method="post", action="/user/login", role="form")
-    fieldset
-      legend=username
-      .form-group
-        label(for="username") Username:
-        .input
-          input.input-lg#username(type="text", name="username")
-      .form-group
-        label(for="password") Password:
-        .input
-          input.input-lg#password(type="text", name="password")
-      .form-group
-        input.btn.btn-lg.btn-primary(type="submit", value="Login")
+      form(method="post", action="/user/login", role="form")
+        fieldset
+          legend=username
+          .form-group
+            label(for="username") Username:
+            input.input-lg.form-control#username(type="text", name="username")
+          .form-group
+            label(for="password") Password:
+            input.input-lg.form-control#password(type="text", name="password")
+          .form-group.checkbox
+            label
+              input(type="checkbox")
+              | Remember me
+          .form-actions
+            input.btn.btn-lg.btn-primary.btn-block(type="submit", value="Yes, it's met sta")

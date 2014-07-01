@@ -31,8 +31,10 @@ body(ng-app="myApp")
 
           ul.nav.navbar-nav.navbar-right
             if user
-              li
-                a(href='/user/#{user.id}') Account: #{user.username}
+              li.active
+                a(href='/user/profile') Account:
+                  | &nbsp;
+                  strong #{user.username}
               li
                 a(href='/user/logout') Logout
             else

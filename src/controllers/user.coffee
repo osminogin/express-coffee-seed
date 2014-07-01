@@ -1,8 +1,7 @@
 module.exports =
 
   login: (req, res) ->
-    switch req.method
-      when 'GET' then  res.render 'user/login'
+    res.render 'user/login'
 
   logout: (req, res) ->
     req.logout()
@@ -12,3 +11,6 @@ module.exports =
     res.render 'user/signup'
 
   # TODO: Implement profile page
+  profile: (req, res) ->
+    res.render 'user/profile'
+

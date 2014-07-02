@@ -45,7 +45,7 @@ module.exports = (app, passport) ->
 
   # If all else failed, show 404 page
   app.all '/*', (req, res) ->
-#    console.warn "error 404: ", req.url
+    console.warn "error 404: ", req.url
     res.statusCode = 404
     res.render '404', 404
 

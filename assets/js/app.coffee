@@ -1,14 +1,19 @@
-angular.module 'myApp', []
+#= require controllers
 
-  .controller 'DemoController', class
-    constructor: (@$location) ->
-      @projectName = 'Express Coffee Seed'
+angular.module 'myApp', ['ngRoute'
+                         'myApp.controllers']
 
-    method: ->
-      'Method'
+  .config ['$routeProvider', ($routeProvider) ->
+    $routeProvider
+      .when '/home',
+        templateUrl: '/partials/home.html'
+        controller: 'DemoController'
+        controllerAs: 'demo'
+      .otherwise
+        redirectTo: '/home'
+  ]
 
-    methodWithParam: (param) ->
-      "Param: #{param}"
-
-    accessFieldFromMethod: ->
-      "Path: #{@$location.absUrl()}"
+  .controller 'HeaderController', class
+    constructor: (@$scope, @$location) ->
+      @$scope.isActive = (viewLocation) ->
+        viewLocation is $location.path()

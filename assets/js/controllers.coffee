@@ -17,3 +17,15 @@ angular.module 'myApp.controllers', []
     constructor: (@$scope, @$location) ->
       @$scope.isActive = (viewLocation) ->
         viewLocation is $location.path()
+
+  .controller 'OrderController', class
+    constructor: (@$scope, @Order) ->
+      Order.query (data) ->
+        $scope.asks = data.asks
+        $scope.bids = data.bids
+
+      $scope.buy = (value) ->
+        alert "AAA #{value}"
+
+      $scope.sell = (value) ->
+        alert "BBB #{value}"

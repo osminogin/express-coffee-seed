@@ -1,6 +1,6 @@
 {
   "name": "express-coffee-seed",
-  "version": "0.3.1",
+  "version": "0.4.0",
   "private": true,
   "author": "Vladimir Osintsev <oc@co.ru> (https://github.com/osminogin)",
   "repository": {
@@ -30,6 +30,7 @@
     "wrench": "1.5.x"
   },
   "devDependencies": {
+    "async": "^0.9.0",
     "chai": "*",
     "coffee-script": "*",
     "ejs": "*",

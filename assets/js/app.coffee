@@ -12,8 +12,3 @@ angular.module 'myApp', ['ngRoute'
       .otherwise
         redirectTo: '/home'
   ]
-
-  .controller 'HeaderController', class
-    constructor: (@$scope, @$location) ->
-      @$scope.isActive = (viewLocation) ->
-        viewLocation is $location.path()

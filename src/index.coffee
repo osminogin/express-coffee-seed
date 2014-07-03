@@ -26,7 +26,7 @@ app.set 'models', db
 
 #### View initialization
 # Add Connect Assets.
-app.use assets(paths: ["assets/js"])
+app.use assets(paths: ['assets/js'])
 
 # Set the public folder as static assets.
 app.use express.static(process.cwd() + '/public')
@@ -36,6 +36,8 @@ console.log "setting session/cookie"
 app.use cookieParser()
 app.use session(
   secret: "^^CHANGE^^ME^^"
+  resave: true
+  saveUninitialized: true
 )
 
 # Authentication

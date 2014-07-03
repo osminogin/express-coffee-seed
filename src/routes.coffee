@@ -8,9 +8,9 @@ module.exports = (app, passport) ->
     failureRedirect: '/user/login'
   }
 
-  # Front page
+  # Main application page
   app.get '/', (req, res, next) ->
-    routeMVC('index', null, req, res, next)
+    routeMVC('home', null, req, res, next)
 
   # Authentication
   app.post '/user/login', isValidUser

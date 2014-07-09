@@ -20,16 +20,18 @@ angular.module 'myApp', ['ngRoute'
 #        controller:  'UserLoginController'
       .when '/profile',
         templateUrl:  '/partials/user-profile.html'
+      .when '/unauthorized',
+        templateUrl:  '/partials/401.html'
       .when '/private',
 #        templateUrl:  '/partials/private.html'
         templateUrl:  '/a/private'
       .otherwise
         redirectTo:   '/home'
 
-  # Catch API errors
+  # Catch site errors
   .config ($httpProvider) ->
     $httpProvider.interceptors.push ($q, $location) ->
       'response': (response) -> response
       'responseError': (rejection) ->
-        $location.path '/login' if rejection.status is 401
+        $location.path '/unauthorized' if rejection.status is 401
         $q.reject(rejection)

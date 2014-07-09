@@ -1,4 +1,4 @@
-# Express Coffee Project Seed (0.4.2)
+# Express Coffee Project Seed (0.4.3)
 
 [![Build Status](https://travis-ci.org/osminogin/express-coffee-seed.svg?branch=master)](https://travis-ci.org/osminogin/express-coffee-seed)
 [![Dependency Status](https://gemnasium.com/osminogin/express-coffee-seed.png)](https://gemnasium.com/osminogin/express-coffee-seed)

@@ -14,34 +14,7 @@ body(ng-app="myApp")
 
   .container
 
-    .navbar.navbar-default(role='navigation', ng-controller='HeaderController')
-      .container-fluid
-
-        .navbar-header
-          a.navbar-brand(href='/') Project name
-
-        .collapse.navbar-collapse
-          ul.nav.navbar-nav
-            li(ng-class="{ active: isActive('/home')}")
-              a(href='#/home') Home
-            li(ng-class="{ active: isActive('/order')}")
-              a(href='#/order') Orders
-            li(ng-class="{ active: isActive('/private')}")
-              a(href='#/private') Private
-
-          ul.nav.navbar-nav.navbar-right
-            if user
-              li
-                a(href='/user/profile') Account:
-                  | &nbsp;
-                  strong #{user.username}
-              li
-                a(href='/user/logout') Logout
-            else
-              li
-                a(href='/user/signup') Sign up
-              li
-                a(href='/user/login') Login
+    include navbar
 
     .row
       .col-lg-offset-1.col-lg-10

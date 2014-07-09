@@ -1,0 +1,28 @@
+.navbar.navbar-default(role='navigation', ng-controller='HeaderController')
+  .container-fluid
+
+    .navbar-header
+      a.navbar-brand(href='/') Project name
+
+    .collapse.navbar-collapse
+      ul.nav.navbar-nav
+        li(ng-class="{ active: isActive('/home')}")
+          a(href='#/home') Home
+        li(ng-class="{ active: isActive('/order')}")
+          a(href='#/order') Orders
+        li(ng-class="{ active: isActive('/private')}")
+          a(href='#/private') Private
+
+      ul.nav.navbar-nav.navbar-right
+        if user
+          li(ng-class="{ active: isActive('/profile')}")
+            a(href='#/profile') Account:
+              | &nbsp;
+              strong #{user.username}
+          li
+            a(href='/user/logout') Logout
+        else
+          li(ng-class="{ active: isActive('/signup')}")
+            a(href='#/signup') Sign up
+          li(ng-class="{ active: isActive('/login')}")
+            a(href='#/login') Login

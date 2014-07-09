@@ -78,9 +78,11 @@ mocha is an extremely powerful and easy to use testing framework
 
 see [http://visionmedia.github.com/mocha/](http://visionmedia.github.com/mocha/)
 
-    describe 'Sample test', ->
-      it 'should be true', ->
-        true.should.equal true
+```coffeescript
+describe 'Sample test', ->
+  it 'should be true', ->
+    true.should.equal true
+```
 
 to run mocha test suite
 

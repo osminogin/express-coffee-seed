@@ -1,4 +1,6 @@
-# Express Coffee Project Seed (0.4.1)
+# Express Coffee Project Seed (0.4.2)
+
+[![Build Status](https://travis-ci.org/osminogin/express-coffee-seed.svg?branch=master)](https://travis-ci.org/osminogin/express-coffee-seed)
 
 This is a Node.js Express CoffeeScript stack project seed originally based on
 [Tom Wilson coffee-express template](https://github.io/twilson63), but use
@@ -13,7 +15,7 @@ disabled for much quickly tests passing)
 This is a boilerplate that can be used to create nodejs applications using 
 
 * Node v0.10.x
-* Express v4.4.x
+* Express v4.5.x
 * CoffeeScript v1.7.x
 * Sequelize v1.7.x
 * Bootstrap 3.1.1 (not a npm module)

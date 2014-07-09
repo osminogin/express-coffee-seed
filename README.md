@@ -1,6 +1,7 @@
 # Express Coffee Project Seed (0.4.2)
 
 [![Build Status](https://travis-ci.org/osminogin/express-coffee-seed.svg?branch=master)](https://travis-ci.org/osminogin/express-coffee-seed)
+[![Dependency Status](https://gemnasium.com/osminogin/express-coffee-seed.png)](https://gemnasium.com/osminogin/express-coffee-seed)
 
 This is a Node.js Express CoffeeScript stack project seed originally based on
 [Tom Wilson coffee-express template](https://github.io/twilson63), but use
@@ -12,6 +13,7 @@ to use coffee-script and stylus for the client side. (This feature temporarily
 disabled for much quickly tests passing)
 
 ## Technologies
+
 This is a boilerplate that can be used to create nodejs applications using 
 
 * Node v0.10.x
@@ -38,7 +40,7 @@ This is a boilerplate that can be used to create nodejs applications using
 
 These requirements will install with NPM and Bower, just do 
 
-```
+```bash
 $ bower install
 $ npm install
 ```
@@ -51,7 +53,7 @@ In your project directory.
 
 # Install nodejs and npm
 
-```
+```bash
 $ git clone https://github.com/osminogin/express-coffee-seed.git [project-name]
 $ cd [project-name]
 $ npm install
@@ -59,14 +61,14 @@ $ npm install
 
 ## Install coffee-script and mocha
 
-```
+```bash
 $ npm install -g coffee-script
 $ npm install -g mocha
 ```
 
 # Start server
 
-```
+```bash
 $ cake run
 ```
 
@@ -82,7 +84,7 @@ see [http://visionmedia.github.com/mocha/](http://visionmedia.github.com/mocha/)
 
 to run mocha test suite
 
-```
+```bash
 $ cake test
 ```
 

@@ -18,7 +18,6 @@ module.exports = (app, passport) ->
     viewName = if fileName.match /\.html$/ then fileName.replace /\.html$/, ''
     try
       res.render "partials/#{viewName}"
-      return
     catch e
       console.warn "partials not found: " + viewName
       next()
@@ -26,9 +25,12 @@ module.exports = (app, passport) ->
   # Authentication
   app.post '/user/login', isValidUser
 
-  # Private page
-  app.get '/a/private', isLoggedIn, (req, res, next) ->
-    routeMVC('private', null, req, res, next)
+  # Private page (return 401 not authorized)
+  app.get '/a/private', isLoggedIn
+
+  # Catch resource requests
+  app.all '/a/:controller/:method/:id?', (req, res, next) ->
+    routeMVC(req.params.controller, req.params.method, req, res, next)
 
   ## REST API interface
   # Get resource items list
@@ -51,14 +53,11 @@ module.exports = (app, passport) ->
   app.delete '/a/:controller/:id', (req, res, next) ->
     routeMVC(req.params.controller, 'delete', req, res, next)
 
-  # Remove resource instance
-  app.all '/a/:controller/:method/:id', (req, res, next) ->
-    routeMVC(req.params.controller, req.params.method, req, res, next)
-
   # If all else failed, show 404 page
   app.all '/*', (req, res) ->
     console.warn "error 404: ", req.url
     res.send 404
+    return
 
 #### Helper functions
 

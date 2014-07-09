@@ -11,8 +11,6 @@ green = '\x1B[0;32m'
 reset = '\x1B[0m'
 
 pkg = JSON.parse fs.readFileSync('./package.json')
-testCmd = pkg.scripts.test
-startCmd = pkg.scripts.start
 
 log = (message, color, explanation) ->
   console.log color + message + reset + ' ' + (explanation or '')
@@ -35,18 +33,14 @@ test = (callback) ->
     'test/helpers.coffee'
     '--compilers'
     'coffee:coffee-script/register'
-    '--colors'
+    '--require'
+    'test/helpers.coffee'
   ]
-  try
-    cmd = which.sync 'mocha' 
-    spec = spawn cmd, options
-    spec.stdout.pipe process.stdout 
-    spec.stderr.pipe process.stderr
-    spec.on 'exit', (status) -> callback?() if status is 0
-  catch err
-    log err.message, red
-    log 'Mocha is not installed - try npm install mocha -g', red
-
+  cmd = which.sync 'mocha'
+  spec = spawn cmd, options
+  spec.stdout.pipe process.stdout
+  spec.stderr.pipe process.stderr
+  spec.on 'exit', (status) -> if status is 0 then callback?() else process.exit status
 
 task 'build', ->
   build -> log ":)", green

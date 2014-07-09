@@ -88,15 +88,16 @@ $ cake test
 
 ### Setup to deploy to heroku
 
-    rm -rf .git
-    git init
-    echo 'node_modules' >> '.gitignore'
-    git add .
-    git commit -am "first commit"
-    heroku create
-    git push heroku master
-    heroku open
-
+```bash
+rm -rf .git
+git init
+echo 'node_modules' >> '.gitignore'
+git add .
+git commit -am "first commit"
+heroku create
+git push heroku master
+heroku open
+```
 
 ## Thanks to
 

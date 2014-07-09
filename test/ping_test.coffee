@@ -2,7 +2,7 @@ describe 'Ping Pong', ->
 
   it "should say hello world", (done) ->
     request(app)
-      .get("/ping")
+      .get("/a/ping")
       .expect(200, hello: ['world'], done)
 
   it "should respond with sent data", (done) ->
@@ -10,7 +10,7 @@ describe 'Ping Pong', ->
     query = {"q":"something"}
     id = "4"
     request(app)
-      .post("/ping/pong/#{id}?q=something")
+      .post("/a/ping/pong/#{id}?q=something")
       .send(pongData)
       .expect(200, (err, res) ->      
         res.body.should.have.property "pongQuery"

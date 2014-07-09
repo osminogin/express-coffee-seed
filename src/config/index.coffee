@@ -10,9 +10,9 @@ exports.setEnvironment = (env) ->
       exports.DEBUG_CLIENT = true
       exports.DB_HOST = 'localhost'
       exports.DB_PORT = '3306'
-      exports.DB_NAME = 'testing'
-      exports.DB_USER = 'testuser'
-      exports.DB_PASS = 'asd1234'
+      exports.DB_NAME = 'testdb'
+      exports.DB_USER = 'root'
+      exports.DB_PASS = ''
 
     when "testing"
       exports.DEBUG_LOG = true

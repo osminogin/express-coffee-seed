@@ -18,7 +18,7 @@ This is a boilerplate that can be used to create nodejs applications using
 * Express v4.5.x
 * CoffeeScript v1.7.x
 * Sequelize v1.7.x
-* Bootstrap 3.1.1 (not a npm module)
+* Bootstrap 3.2.x (not a npm module)
 * Connect Assets v3.0.x
 * Angular v1.2.x
 * Jade v1.3.1

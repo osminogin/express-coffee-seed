@@ -1,4 +1,4 @@
-# Express Coffee Project Seed (0.4.0)
+# Express Coffee Project Seed (0.4.1)
 
 This is a Node.js Express CoffeeScript stack project seed originally based on
 [Tom Wilson coffee-express template](https://github.io/twilson63), but use

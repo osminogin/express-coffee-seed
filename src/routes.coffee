@@ -20,13 +20,14 @@ module.exports = (app, passport) ->
       res.render "partials/#{viewName}"
       return
     catch e
-      console.warn "partials not found: " + viewName, e
+      console.warn "partials not found: " + viewName
       next()
 
   # Authentication
   app.post '/user/login', isValidUser
 
-  app.get '/private', isLoggedIn, (req, res, next) ->
+  # Private page
+  app.get '/a/private', isLoggedIn, (req, res, next) ->
     routeMVC('private', null, req, res, next)
 
   ## REST API interface
@@ -50,23 +51,17 @@ module.exports = (app, passport) ->
   app.delete '/a/:controller/:id', (req, res, next) ->
     routeMVC(req.params.controller, 'delete', req, res, next)
 
-
-  # Search controller and method with id if present
-  app.all '/:controller/:method?/:id?', (req, res, next) ->
-    routeMVC(req.params.controller, req.params.method, req, res, next)
-
   # If all else failed, show 404 page
   app.all '/*', (req, res) ->
     console.warn "error 404: ", req.url
-    res.statusCode = 404
-    res.render '404', 404
+    res.send 404
 
 #### Helper functions
 
 # Check user is logged in
 isLoggedIn = (req, res, next) ->
-  if req.user? then  next()
-  else res.redirect '/user/login'
+  if req.user? then next()
+  else res.send 401
 
 # Render the page based on controller name, method and id
 routeMVC = (controllerName = 'index', methodName = 'index', req, res, next) ->
@@ -74,10 +69,10 @@ routeMVC = (controllerName = 'index', methodName = 'index', req, res, next) ->
   try
     controller = require './controllers/' + controllerName
   catch e
-    console.warn "controller not found: " + controllerName, e
+    console.warn "controller not found: " + controllerName
     next()
 
-  if typeof controller[methodName] is 'function'
+  if typeof controller?[methodName] is 'function'
     actionMethod = controller[methodName].bind controller
     actionMethod req, res, next
   else

@@ -20,11 +20,8 @@ angular.module 'myApp', ['ngRoute'
 #        controller:  'UserLoginController'
       .when '/profile',
         templateUrl:  '/partials/user-profile.html'
-      .when '/unauthorized',
-        templateUrl:  '/partials/401.html'
       .when '/private',
-#        templateUrl:  '/partials/private.html'
-        templateUrl:  '/a/private'
+        templateUrl:  '/partials/401.html'
       .otherwise
         redirectTo:   '/home'
 
@@ -33,5 +30,5 @@ angular.module 'myApp', ['ngRoute'
     $httpProvider.interceptors.push ($q, $location) ->
       'response': (response) -> response
       'responseError': (rejection) ->
-        $location.path '/unauthorized' if rejection.status is 401
+        $location.path '/private' if rejection.status is 401
         $q.reject(rejection)

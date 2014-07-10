@@ -7,7 +7,7 @@ exports.index = (req, res) ->
 # Sends anything from request back as JSON
 exports.pong = (req, res) ->
   # Create ping-pong response from received data
-  data = 
+  data =
     pongQuery: req.query
     pongBody: req.body
     pongParams: req.params

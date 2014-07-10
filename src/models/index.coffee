@@ -17,7 +17,7 @@ sequelize = new Sequelize config.DB_NAME, config.DB_USER, config.DB_PASS,
 fs.readdirSync(__dirname)
   .filter (file) ->
     if file.search(/\.map$/) is -1 and file isnt 'index.js'
-        file
+      file
   .forEach (file) ->
     model = file.replace /^./, (match) -> match.toUpperCase()
     model = model.replace /\.\w+$/, '' # trim file suffix

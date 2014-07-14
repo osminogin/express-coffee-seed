@@ -5,7 +5,7 @@ module.exports = (app, passport) ->
   # Check valid user
   isValidUser = passport.authenticate 'local', {
     successRedirect: '/'
-    failureRedirect: '/user/login'
+    failureRedirect: '/unauthorized'
   }
 
   # Main application page
@@ -26,7 +26,7 @@ module.exports = (app, passport) ->
   app.post '/user/login', isValidUser
 
   # Private page (return 401 not authorized)
-  app.get '/a/private', isLoggedIn
+  app.get '/a/private', requiresAuth
 
   # Catch resource requests
   app.all '/a/:controller/:method/:id?', (req, res, next) ->
@@ -37,32 +37,31 @@ module.exports = (app, passport) ->
   app.get '/a/:controller', (req, res, next) ->
     routeMVC(req.params.controller, 'index', req, res, next)
 
-  # Create new resource item
-  app.post '/a/:controller', (req, res, next) ->
+  # Create new resource item (must be logged in)
+  app.post '/a/:controller', requiresAuth, (req, res, next) ->
     routeMVC(req.params.controller, 'create', req, res, next)
 
   # Get resource item by id
   app.get '/a/:controller/:id', (req, res, next) ->
     routeMVC(req.params.controller, 'get', req, res, next)
 
-  # Update item data
-  app.put '/a/:controller/:id', (req, res, next) ->
+  # Update item data (must be logged in)
+  app.put '/a/:controller/:id', requiresAuth, (req, res, next) ->
     routeMVC(req.params.controller, 'update', req, res, next)
 
-  # Remove resource instance
-  app.delete '/a/:controller/:id', (req, res, next) ->
+  # Remove resource instance (must be logged in)
+  app.delete '/a/:controller/:id', requiresAuth, (req, res, next) ->
     routeMVC(req.params.controller, 'delete', req, res, next)
 
   # If all else failed, show 404 page
   app.all '/*', (req, res) ->
     console.warn "error 404: ", req.url
     res.send 404
-    return
 
 #### Helper functions
 
 # Check user is logged in
-isLoggedIn = (req, res, next) ->
+requiresAuth = (req, res, next) ->
   if req.user? then next()
   else res.send 401
 

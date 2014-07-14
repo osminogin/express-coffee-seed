@@ -1,7 +1,6 @@
 express = require 'express'
 assets = require 'connect-assets'
 passport = require 'passport'
-flash = require 'connect-flash'
 session = require 'express-session'
 cookieParser = require 'cookie-parser'
 bodyParser = require 'body-parser'
@@ -43,9 +42,6 @@ app.use session(
 # Authentication
 app.use passport.initialize()
 app.use passport.session()
-
-# Flash messages
-app.use flash()
 
 # Set View Engine.
 app.set 'view engine', 'jade'

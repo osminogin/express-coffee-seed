@@ -10,20 +10,19 @@ module.exports = (app, passport) ->
 
   passport.deserializeUser (id, done) ->
     db.User.find id
-      .complete (err, user) ->
-        done err if err?
-        done null, user
+    .complete (err, user) ->
+      done err if err?
+      done null, user
 
   # Local signup strategy
   passport.use 'local', new LocalStrategy (username, password, done) ->
     db.User.find
-        where:
-          username: username
-          password: password
-          isActive: true
-      .complete (err, user) ->
-        done err if err?
-        done null, user
+      where:
+        username: username
+        password: password
+        isActive: true
+    .complete (err, user) ->
+      done err if err?
+      done null, user
 
   return
-

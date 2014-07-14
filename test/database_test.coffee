@@ -1,5 +1,3 @@
-db = app.get 'models'
-
 describe 'Database', ->
   it 'should flush data and sync to last database scheme', (done) ->
     db.sequelize

@@ -16,7 +16,7 @@ module.exports = (app, passport) ->
 
   # Site partials
   app.get '/partials/:controller?/:filename', (req, res, next) ->
-    controller = if req.params.controller? then req.params.controller else ''
+    controller = req.params.controller or ''
     fileName = req.params.filename
     try
       res.render path.join "partials", controller, fileName

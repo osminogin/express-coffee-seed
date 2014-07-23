@@ -1,3 +1,5 @@
+path = require 'path'
+
 #### Routes
 
 module.exports = (app, passport) ->
@@ -13,13 +15,13 @@ module.exports = (app, passport) ->
     routeMVC('home', null, req, res, next)
 
   # Site partials
-  app.get '/partials/:filename', (req, res, next) ->
+  app.get '/partials/:controller?/:filename', (req, res, next) ->
+    controller = if req.params.controller? then req.params.controller else ''
     fileName = req.params.filename
-    viewName = if fileName.match /\.html$/ then fileName.replace /\.html$/, ''
     try
-      res.render "partials/#{viewName}"
+      res.render path.join "partials", controller, fileName
     catch e
-      console.warn "partials not found: " + viewName
+      console.warn "partials not found: " + fileName
       next()
 
   # Authentication

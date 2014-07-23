@@ -44,11 +44,9 @@ module.exports =
         id: req.params.id
       .complete (err) ->
         if not err?
-          res.statusCode = 204
-          res.end()
+          res.send 204 # No content
         else
-          res.statusCode = 400
-          res.end()
+          res.send 400
 
   # Deletes order by id
   delete: (req, res) ->
@@ -58,8 +56,6 @@ module.exports =
       .complete (err, result) ->
         if not err?
           result.destroy().success ->
-            res.statusCode = 204
-            res.end()
+            res.send 204
         else
-          res.statusCode = 400
-          res.end()
+          res.send 400

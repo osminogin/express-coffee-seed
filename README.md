@@ -4,9 +4,9 @@
 [![Dependency Status](https://gemnasium.com/osminogin/express-coffee-seed.png)](https://gemnasium.com/osminogin/express-coffee-seed)
 
 This is a Node.js Express CoffeeScript stack project seed originally based on
-[Tom Wilson coffee-express template](https://github.io/twilson63), but use
-Sequelize as database ORM (working with MySQL, MariaDB, SQLite and PostgreSQL 
-databases).
+[Tom Wilson's coffee-express template](https://github.io/twilson63), but use
+Sequelize ORM (working with MySQL, MariaDB, SQLite and PostgreSQL databases) 
+and have a better CoffeeScript support.
 
 It comes ready to go with connect-assets that give you the option
 to use coffee-script and stylus for the client side. (This feature temporarily 
@@ -112,9 +112,8 @@ heroku open
 
 ## About
 
-express-coffee-seed is a template or boilerplate to get started writing 
-new express web applications in Coffee Script.  It comes ready to go with base
-setup for an Express Web App.  
+express-coffee-seed is a boilerplate to get started writing new express web applications
+in Coffee Script. It comes ready to go with base setup for an Express Web App.
 
 It includes a Cakefile that lets you build, test, and watch Coffee Scripts as you develop.
 

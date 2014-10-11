@@ -59,6 +59,5 @@ auth app, passport
 routes = require './routes'
 routes app, passport
 
-
 # Export application object
 module.exports = app

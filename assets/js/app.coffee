@@ -1,4 +1,6 @@
 #= require controllers
+#= require directives
+#= require filters
 #= require services
 
 angular.module 'myApp', ['ngRoute'

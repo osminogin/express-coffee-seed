@@ -3,9 +3,9 @@
   "version": "0.4.3",
   "dependencies": {
     "bootstrap": "~3.2.0",
-    "angular": "~1.2.18",
-    "angular-route": "~1.2.18",
-    "angular-resource": "~1.2.18"
+    "angular": "~1.2.19",
+    "angular-route": "~1.2.19",
+    "angular-resource": "~1.2.19"
   },
   "private": true
 }

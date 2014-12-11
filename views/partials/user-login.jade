@@ -1,3 +1,5 @@
+// Login form
+
 .row
   .col-lg-5.col-lg-offset-3.well
     h2 Existing user login
@@ -10,10 +12,10 @@
           input.input-lg.form-control#username(type="text", name="username")
         .form-group
           label(for="password") Password:
-          input.input-lg.form-control#password(type="text", name="password")
+          input.input-lg.form-control#password(type="password", name="password")
         .form-group.checkbox
           label
-            input(type="checkbox")
+            input(type="checkbox" checked=true)
             | Remember me
         .form-actions
           input.btn.btn-lg.btn-primary.btn-block(type="submit", value="Yes, it's me")

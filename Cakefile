@@ -62,7 +62,7 @@ task 'run', 'start server', ->
     '--watch',
     'src,views',
     '--ignore',
-    'public,test,node_modules,scaffold',
+    'public,test,node_modules,skeleton',
     '--extensions',
     'coffee|js|jade',
     'server'
@@ -96,14 +96,14 @@ task 'debug', 'start debug env', ->
 #  chrome.stderr.pipe process.stderr
   log 'Debugging server', green
   
-option '-n', '--name [NAME]', 'name of model to `scaffold`'
-task 'scaffold', 'scaffold model/controller/test', (options) ->
+option '-n', '--name [NAME]', 'name of entity to scaffold'
+task 'skeleton', 'skeleton model/controller/test', (options) ->
   if not options.name?
     log "Please specify model name", red
     process.exit(1)
   log "Scaffolding `#{options.name}`", green
-  scaffold = require './scaffold'
-  scaffold options.name
+  skel = require './skeleton'
+  skel options.name
   
 
 

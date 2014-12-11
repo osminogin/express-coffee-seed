@@ -11,19 +11,19 @@ angular.module 'myApp', ['ngRoute'
   .config ($routeProvider) ->
     $routeProvider
       .when '/home',
-        templateUrl:  '/partials/home'
+        templateUrl:  '/partials/index'
         controller:   'DemoController'
         controllerAs: 'demo'
       .when '/signup',
-        templateUrl:  '/partials/user-signup'
+        templateUrl:  '/partials/user/signup'
 #        controller:  'SignupController'
       .when '/login',
-        templateUrl:  '/partials/user-login'
+        templateUrl:  '/partials/user/login'
 #        controller:  'UserLoginController'
       .when '/profile',
-        templateUrl:  '/partials/user-profile'
+        templateUrl:  '/partials/user/profile'
       .when '/private',
-        templateUrl:  '/partials/401'
+        templateUrl:  '/partials/error/401'
       .otherwise
         redirectTo:   '/home'
 

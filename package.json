@@ -23,7 +23,9 @@
     "mariasql": "^0.1.21",
     "passport": "^0.2.0",
     "passport-local": "^1.0.0",
-    "sequelize": "^1.7.8"
+    "sequelize": "^1.7.8",
+    "which": "*",
+    "wrench": "*"
   },
   "devDependencies": {
     "async": "^0.9.0",

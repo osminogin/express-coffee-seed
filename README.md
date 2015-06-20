@@ -1,7 +1,10 @@
 # Express Coffee Project Seed (0.4.3)
 
+![unmaintained](http://img.shields.io/badge/status-unmaintained-red.png)
 [![Build Status](https://travis-ci.org/osminogin/express-coffee-seed.svg?branch=master)](https://travis-ci.org/osminogin/express-coffee-seed)
 [![Dependency Status](https://gemnasium.com/osminogin/express-coffee-seed.png)](https://gemnasium.com/osminogin/express-coffee-seed)
+
+**NOTE**: This project is unmaintained.
 
 This is a Node.js Express CoffeeScript stack project seed originally based on
 [Tom Wilson's coffee-express template](https://github.io/twilson63), but use

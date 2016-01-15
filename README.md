@@ -6,7 +6,12 @@
 
 **NOTE**: This project is unmaintained.
 
-This is a Node.js Express CoffeeScript stack project seed originally based on
+If you want to develop it, don't issue pull requests, but create your own fork.
+Thanks!
+
+## Introduction
+
+Project seed for Node.js/Express/CoffeeScript stack originally based on
 [Tom Wilson's coffee-express template](https://github.io/twilson63), but use
 Sequelize ORM (working with MySQL, MariaDB, SQLite and PostgreSQL databases) 
 and have a better CoffeeScript support.

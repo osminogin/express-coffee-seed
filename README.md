@@ -39,7 +39,7 @@ This is a boilerplate that can be used to create nodejs applications using
 * [Express](http://expressjs.com)
 * [CoffeeScript](http://coffeescript.org)
 * [Bower](http://bower.io/)
-* [Mocha](http://visionmedia.github.com/mocha/)
+* [Mocha](http://mochajs.org/)
 * [Sequelize](http://sequelizejs.com/)
 * [connect-assets](http://github.com/TrevorBurnham/connect-assets)
 * [Bootstrap](https://github.com/twbs/bootstrap)
@@ -84,7 +84,7 @@ $ cake run
 
 mocha is an extremely powerful and easy to use testing framework
 
-see [http://visionmedia.github.com/mocha/](http://visionmedia.github.com/mocha/)
+see [http://mochajs.org/](http://mochajs.org/)
 
 ```coffeescript
 describe 'Sample test', ->
